@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import MainContainer from "./components/MainContainer";
+import setAuthToken from "./redux/action/setAuth";
+import jwt from "jsonwebtoken";
+import store from "./redux/store";
+import "./App.css";
+import { setCurrentUser, logout } from "./redux";
 
 function App() {
+  if (localStorage.jwtToken) {
+    setAuthToken(localStorage.jwtToken);
+    jwt.verify(localStorage.jwtToken, "secret", function (err, decode) {
+      if (err) {
+        store.dispatch(logout());
+      } else {
+        store.dispatch(setCurrentUser(decode));
+      }
+    });
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <MainContainer />
+      </div>
+    </Provider>
   );
 }
 
