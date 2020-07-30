@@ -11,4 +11,9 @@ export {
   setCurrentUser,
   logout,
 } from "./action/userAction";
-export { addPassword } from "./action/passwordAction";
+export {
+  addPassword,
+  fetchPassword,
+  editPassword,
+  updatePassword,
+} from "./action/passwordAction";

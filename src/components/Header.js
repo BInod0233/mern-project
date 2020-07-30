@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { Link, Route } from "react-router-dom";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { connect } from "react-redux";
 import { logout } from "../redux/action/userAction";
+import PassowrdContainer from "./PasswordContainer";
+import GetPassowrdContainer from "./GetPasswordContainer";
 
 function Header(props) {
   return (
@@ -13,7 +14,7 @@ function Header(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Link to="#" className="dropdown-item" role="button">
+            <Link to="/" className="dropdown-item" role="button">
               Home{" "}
             </Link>
             <NavDropdown title="Category" id="basic-nav-dropdown">
@@ -25,10 +26,18 @@ function Header(props) {
               </Link>
             </NavDropdown>
             <NavDropdown title="Passowrd" id="basic-nav-dropdown">
-              <Link to="#" className="dropdown-item" role="button">
-                Add New Password Category
+              <Link
+                to="/addNewPassword"
+                className="dropdown-item"
+                role="button"
+              >
+                Add New Password
               </Link>
-              <Link to="#" className="dropdown-item" role="button">
+              <Link
+                to="/GetPasswordContainer"
+                className="dropdown-item"
+                role="button"
+              >
                 View all password
               </Link>
             </NavDropdown>
@@ -37,7 +46,7 @@ function Header(props) {
               id="basic-nav-dropdown"
             >
               <Link to="#" className="dropdown-item" role="button">
-                viww profile
+                view profile
               </Link>
               <Link
                 to="#"
@@ -52,6 +61,8 @@ function Header(props) {
         </Navbar.Collapse>
       </Navbar>
       <div></div>
+      <Route path="/addNewPassword" component={PassowrdContainer} />
+      <Route path="/GetPasswordContainer" component={GetPassowrdContainer} />
     </div>
   );
 }

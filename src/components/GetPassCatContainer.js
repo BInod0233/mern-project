@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPassCat, editPassCat, deletePassCat } from "../redux";
-import { Table, Button, Col } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 function GetPassCatContainer(props) {
   const user_id = useSelector((state) => state.user.userDetails.userid);
@@ -13,6 +13,9 @@ function GetPassCatContainer(props) {
   const allCategories = useSelector((state) => state.pass.allCategories);
 
   if (allCategories) {
+    // var Cat = allCategories.map((val) => (
+    //   <option value={val.password_category}>{val.password_category}</option>
+    // ));
     var CatData = allCategories.map((val, i) => (
       <tr key={i}>
         <td key={val._id}> {i + 1} </td> <td> {val._id} </td>
@@ -64,4 +67,5 @@ function GetPassCatContainer(props) {
     </div>
   );
 }
+
 export default GetPassCatContainer;
