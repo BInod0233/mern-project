@@ -11,12 +11,12 @@ function GetPasswordContainer(props) {
     dispatch(fetchPassword());
   });
   const allPassword = useSelector((state) => state.password.allPassword);
-
+  // console.log(allPassword);
   if (allPassword) {
     var CatData = allPassword.map((val, i) => (
       <tr key={i}>
-        <td key={val._id}> {i + 1} </td>
-        <td>{val.password_category.password_category}</td>
+        <td key={val._id}>{i + 1}</td>
+        {/* <td>{val.password_category.password_category}</td> */}
         <td>{val.project_name}</td>
         <td>{val.password_detail}</td>
       </tr>
@@ -47,7 +47,7 @@ function GetPasswordContainer(props) {
             <th> project detail </th> <th> Action </th>
           </tr>
         </thead>
-        <tbody>{CatData}</tbody>
+        <tbody>{CatData} </tbody>
       </Table>
     </div>
   );

@@ -26,7 +26,7 @@ function MainContainer(props) {
     );
   }
 
-  return <Router> {callContainer} </Router>;
+  return <Router>{callContainer}</Router>;
 }
 
 export default MainContainer;

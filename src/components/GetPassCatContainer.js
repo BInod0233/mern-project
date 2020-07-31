@@ -18,8 +18,8 @@ function GetPassCatContainer(props) {
     // ));
     var CatData = allCategories.map((val, i) => (
       <tr key={i}>
-        <td key={val._id}> {i + 1} </td> <td> {val._id} </td>
-        <td> {val.password_category} </td>
+        <td key={val._id}>{i + 1}</td> <td>{val._id}</td>
+        <td>{val.password_category}</td>
         <td>
           <Button
             className="btn btn-primary"
@@ -62,7 +62,7 @@ function GetPassCatContainer(props) {
             <th> Action </th>
           </tr>
         </thead>
-        <tbody> {CatData}</tbody>
+        <tbody>{CatData} </tbody>
       </Table>
     </div>
   );
