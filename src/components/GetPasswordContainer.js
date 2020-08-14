@@ -39,7 +39,7 @@ function GetPasswordContainer(props) {
   // console.log(allPassword);
   return (
     <div>
-      <h1> All Passsword Category Working </h1>
+      <h1> All Passsword Category </h1>
       <Table striped bordered hover size="sm">
         <thead>
           <tr>
@@ -47,7 +47,7 @@ function GetPasswordContainer(props) {
             <th> project detail </th> <th> Action </th>
           </tr>
         </thead>
-        <tbody>{CatData} </tbody>
+        <tbody>{CatData}</tbody>
       </Table>
     </div>
   );

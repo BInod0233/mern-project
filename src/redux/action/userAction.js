@@ -39,7 +39,7 @@ export const loginUser = (username, password) => {
         username: username,
         password: password,
       },
-      headers: { "content-type": "application/json" },
+      headers: { "content-type": "application/jsonSignup" },
     };
 
     axios(OPTIONS)
